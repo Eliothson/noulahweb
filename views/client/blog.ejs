@@ -1,0 +1,181 @@
+<%- include('header'); -%>
+
+<section class="services2 cid-rZ5Gu7N4i2" id="services2-f">
+    
+    <!--Container-->
+    <% if (locals.firstelement) {%>
+    <div class="container">
+        <div class="col-md-12">
+            <div class="media-container-row">
+                <% if (firstelement.lienImage !=="false") {%>
+                    <% if (firstelement.mediatype =="image/jpeg" || firstelement.mediatype =="image/png" ){%>
+                    <div class="mbr-figure" style="width: 50%;">
+                        <img src="<%= firstelement.lienImage %>" alt="noulha">
+                    </div>
+                    <% } else { %>
+                        <div class="mbr-figure" style="width: 50%;">
+                            <video class="video-block" style="width: 80%" src="<%= firstelement.lienImage %>" controls  alt="image Matitech">
+                        </div>
+                    <% }
+                    } %>
+                <div class="align-left aside-content">
+                    <h2 class="mbr-title pt-2 mbr-fonts-style display-2">
+                        <%= firstelement.titre %>
+                    </h2>
+                    <div class="mbr-section-text">
+                        <a class="mbr-text text1 pt-2 mbr-light mbr-fonts-style display-7">
+                            <%= firstelement.link%>
+                        </a>
+                        <p class="mbr-text text1 pt-2  mbr-fonts-style display-7">
+                            <%= firstelement.message%>
+                        </p>
+                    </div>
+                    <!--Btn-->
+                    <div class="mbr-section-btn pt-3 align-left"><a href="/" class="btn btn-warning-outline display-4">
+                            Aimer</a></div>
+                </div>
+            </div>
+        </div>
+        <% } %>
+    </div>
+</section>
+
+<section class="services6 cid-rZ5GrGCAl4" id="services6-e">
+    <!---->
+    
+    <!---->
+    <!--Overlay-->
+    
+    <!--Container-->
+    <div class="container">
+        <div class="row">
+            <!--Titles-->
+            <div class="title col-12">
+                <h2 class="align-left mbr-fonts-style m-0 display-1">
+                    Liste des Publications</h2>
+                
+            </div>
+            <!--Card-1-->
+            <% 
+            if (locals.articles){
+            articles.forEach(function (article){ %>
+            <div class="card col-12 pb-5">
+                <div class="card-wrapper media-container-row media-container-row">
+                    <div class="card-box">
+                        <div class="row">
+                            <% if (article.lienImage !=="false") {%>
+                            <div class="col-12 col-md-2">
+                                <!--Image-->
+                                <% if (article.mediatype =="image/jpeg" || article.mediatype =="image/png" ){%>
+                                <div class="mbr-figure">
+                                    <img src="<%= article.lienImage %>" alt="Mobirise">
+                                </div>
+                                <% } else {%>    
+                                <div class="mbr-figure">
+                                    <video class="video-block" style="width: 80%" src="<%= article.lienImage %>" controls  alt="image Matitech">
+                                    </div>
+                                <% } %>
+                            </div>
+                            <% } %>
+                            <div class="col-12 col-md-10">
+                                <div class="wrapper">
+                                    <div class="top-line pb-3">
+                                        <h4 class="card-title mbr-fonts-style display-5">
+                                            <%= article.titre %>
+                                        </h4>
+                                        <a href="/article" class="mbr-text cost mbr-fonts-style m-0 display-5">
+                                            En savoir Plus
+                                        </a>
+                                    </div>
+                                    <div class="bottom-line">
+                                        <p class="mbr-text mbr-fonts-style display-7">
+                                            <%= article.message %>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% }) }%>
+            
+        </div>
+    </div>
+</section>
+
+
+  <script src="assets/web/assets/jquery/jquery.min.js"></script>
+  <script src="assets/popper/popper.min.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/tether/tether.min.js"></script>
+  <script src="assets/smoothscroll/smooth-scroll.js"></script>
+  <script src="assets/dropdown/js/nav-dropdown.js"></script>
+  <script src="assets/dropdown/js/navbar-dropdown.js"></script>
+  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
+  <script src="assets/theme/js/script.js"></script>
+  
+  
+  <section class="cid-rZ5Bs749Xo" id="footer5-9">
+
+    <div class="container">
+        <div class="media-container-row">
+            <div class="col-md-3">
+                <div class="media-wrap">
+                    <a href="/">
+                       <img src="assets/images/logo.jpg" alt="Mobirise" title="">
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-9">
+                
+            </div>
+        </div>
+        <div class="footer-lower">
+            <div class="media-container-row">
+                <div class="col-md-12">
+                    <hr>
+                </div>
+            </div>
+            <div class="media-container-row mbr-white">
+                <div class="col-md-6 copyright">
+                    <p class="mbr-text mbr-fonts-style display-7">
+                        © Copyright 2020 NOULHA - All Rights Reserved
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <div class="social-list align-right">
+                        <div class="soc-item">
+                            <a href="https://twitter.com/mobirise" target="_blank">
+                                <span class="socicon-twitter socicon mbr-iconfont mbr-iconfont-social"></span>
+                            </a>
+                        </div>
+                        <div class="soc-item">
+                            <a href="https://www.facebook.com/pages/Mobirise/1616226671953247" target="_blank">
+                                <span class="socicon-facebook socicon mbr-iconfont mbr-iconfont-social"></span>
+                            </a>
+                        </div>
+                        <div class="soc-item">
+                            <a href="https://www.youtube.com/c/mobirise" target="_blank">
+                                <span class="socicon-youtube socicon mbr-iconfont mbr-iconfont-social"></span>
+                            </a>
+                        </div>
+                        <div class="soc-item">
+                            <a href="https://instagram.com/mobirise" target="_blank">
+                                <span class="socicon-instagram socicon mbr-iconfont mbr-iconfont-social"></span>
+                            </a>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+  
+</body>
+</html>

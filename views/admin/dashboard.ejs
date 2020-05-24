@@ -1,0 +1,189 @@
+<%- include('header'); -%>
+
+
+
+<section class="mbr-section form4 cid-rZ5LKXLyS1" id="form4-s">
+    <br> <br> <br>
+    <% if (locals.modi) { %>      
+    <div class="container">
+        <div class="row">
+            <form action="/modifier" method="POST" enctype="multipart/form-data" class="mbr-form form-with-styler" data-form-title="Mobirise Form">
+                              
+                <h2 class="pb-3 align-left mbr-fonts-style display-2"> Formulaire de Publication</h2>
+
+            
+                <div class="col-md-6">
+                
+                    <div data-form-type="formoid">
+                    <!---Formbuilder Form--->
+                        <div class="row">
+                            <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Merci!</div>
+                            <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">
+                            </div>
+                        </div>
+                        <div class="dragArea row">
+                            <div class="col-md-12  form-group" data-for="name">
+                                <input type="text" value= "<%= modi.link %> "name="link" placeholder="Lien si c'est poster sur un autre site " data-form-field="link" class="form-control input display-7" id="name-form4-s">
+                            </div>
+                            <div class="col-md-12  form-group" data-for="title">
+                                <input type="text" value= "<%= modi.titre %>" name="titre" placeholder="titre" data-form-field="titre" required="required" class="form-control input display-7" id="phone-form4-s">
+                            </div>
+                            <div data-for="message" class="col-md-12  form-group">
+                                <textarea name="message" id="myTextarea" value= "<%= modi.message %>" placeholder="Contenu de l'article" data-form-field="Message" class="form-control input display-7" id="message-form4-s"></textarea>
+                                <script>
+                                    document.getElementById("myTextarea").value = "<%= modi.message %>";
+                                </script>
+                            </div>
+                            <div class="col-md-12  form-group">
+                                <input type="file" name="postmedia" placeholder="Mettre une image" id="upload" onchange="previewImage(this);">
+                                <img src="<%= modi.lienImage %> " 
+                                style="
+                                    background: #333;
+                                    min-height:200px;
+                                    width: 100%;
+                                "
+                                id="preview-image">
+            
+                            </div>
+                            <input type="hidden" name="id" value="<%= modi.id%>">
+                            
+                            <div class="col-md-12 input-group-btn  mt-2 align-center">
+                                <button type="submit" class="btn btn-form btn-danger display-4">Ajouter</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <% } 
+    else {%>
+        <div class="container">
+            <div class="row">
+                <form action="/admin/ajouter" method="POST" enctype="multipart/form-data" class="mbr-form form-with-styler" data-form-title="Mobirise Form">
+                                  
+                    <h2 class="pb-3 align-left mbr-fonts-style display-2"> Formulaire de Publication</h2>
+    
+                
+                    <div class="col-md-6">
+                    
+                        <div data-form-type="formoid">
+                        <!---Formbuilder Form--->
+                            <div class="row">
+                                <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Merci!</div>
+                                <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">
+                                </div>
+                            </div>
+                            <div class="dragArea row">
+                                <div class="col-md-12  form-group" data-for="name">
+                                    <input type="text" name="link" placeholder="Lien si c'est poster sur un autre site " data-form-field="link" class="form-control input display-7" id="name-form4-s">
+                                </div>
+                                <div class="col-md-12  form-group" data-for="title">
+                                    <input type="text" name="titre" placeholder="titre" data-form-field="titre" required="required" class="form-control input display-7" id="phone-form4-s">
+                                </div>
+                                <div data-for="message" class="col-md-12  form-group">
+                                    <textarea name="message" placeholder="Contenu de l'article" data-form-field="Message" class="form-control input display-7" id="message-form4-s"></textarea>
+                                </div>
+                                <div class="col-md-12  form-group">
+                                    <input type="file" name="postmedia" placeholder="Mettre une image" id="upload" onchange="previewImage(this);">
+                                    <img src="http://via.placeholder.com/380x200" 
+                                    style="
+                                        background: #333;
+                                        min-height:200px;
+                                        width: 100%;
+                                    "
+                                    id="preview-image">
+                
+                                </div>
+                                
+                                <div class="col-md-12 input-group-btn  mt-2 align-center">
+                                    <button type="submit" class="btn btn-form btn-danger display-4">Ajouter</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+    <% } %>
+</section>
+
+
+<section class="services6 cid-rZ5GrGCAl4" id="services6-e">
+    
+    <div class="container">
+        <div class="row">
+            <!--Titles-->
+            <div class="title col-12">
+                <h2 class="align-left mbr-fonts-style m-0 display-1"> 
+                    Liste des Publications</h2>
+            </div>
+            <!--Card-1-->
+            <% 
+            if (locals.articles){
+            articles.forEach(function (article){ %>
+            <div class="card col-12 pb-5">
+                <div class="card-wrapper media-container-row media-container-row">
+                    <div class="card-box">
+                        <div class="row">
+                            <% if (article.lienImage !=="false") {%>
+                            <div class="col-12 col-md-2">
+                                <!--Image-->
+                                <% if (article.mediatype =="image/jpeg" || article.mediatype =="image/png" ){%>
+                                <div class="mbr-figure">
+                                    <img src="<%= article.lienImage %>" alt="Noulha">
+                                </div>
+                                <% } else {%>    
+                                <div class="mbr-figure">
+                                    <video class="video-block" style="width: 80%" src="<%= article.lienImage %>" controls  alt="image Matitech">
+                                    </div>
+                                <% } %>
+                            </div>
+                            <% } %>
+                            <div class="col-12 col-md-10">
+                                <div class="row">
+                                    <div class="top-line ">
+                                        <h4 class="card-title mbr-fonts-style display-5">
+                                            <%= article.titre %>
+                                        </h4>
+                                        <p class="mbr-text mbr-fonts-style display-7">
+                                            <%= article.message %>
+                                        </p>
+                                        
+                                    </div>
+                                    <div class="bottom-line">
+                                        <div class="mbr-text cost mbr-fonts-style m-0 display-7">
+                                            <a href="/modifier/<%= article.id %>" type="submit" class="btn btn-form btn-danger display-7">Modifier</a>
+                                        
+                                            <a href="/supprimer/<%= article.id %>" type="submit" class="btn btn-form btn-danger display-7">Suprimer</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% }) }%>
+        </div>
+    </div>
+</section>
+
+
+<script src="jquery-1.9.1.js"></script>
+<script>
+function previewImage(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      $('#preview-image').attr('src', e.target.result);
+    }
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+</script>
+  
+  
+<%- include ('footer');-%>
